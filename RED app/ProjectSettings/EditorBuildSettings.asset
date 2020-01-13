@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/AppShared/Scenes/AppStart.unity
+    guid: a48f12edb3042874fb9094b451b5b898
+  - enabled: 1
+    path: Assets/AppShared/Scenes/UploadData.unity
+    guid: 0e96af9b7d66e8d498243ffba75ca204
+  - enabled: 1
+    path: Assets/AppShared/Scenes/AppDemoStart.unity
+    guid: 51988423c8df143bb8cbed02e39f8fe4
+  - enabled: 1
+    path: Assets/AppShared/Scenes/AppEnd.unity
+    guid: 1596184e8067c214a9bd2497569ac9a7
+  - enabled: 1
+    path: Assets/AppShared/Scenes/AppRestart.unity
+    guid: e5a9cccfa639a407ba57f92dedd79a26
+  - enabled: 1
+    path: Assets/AppShared/Scenes/AppStartPrompt.unity
+    guid: 26c24c8694784d943a29f6086e2c9e21
+  - enabled: 1
+    path: Assets/AppShared/Scenes/AppStartPromptCBU.unity
+    guid: f2a8018d29c4c4338a4c5259eec1b09a
+  - enabled: 1
+    path: Assets/AppShared/Scenes/InBetweenScene.unity
+    guid: 31ae23acbf603ae419ff5d7ffec47869
+  - enabled: 1
+    path: Assets/CancellationTask/Scenes/CancellationInBetween.unity
+    guid: 7032c8185ba024690b094811b54deb14
+  - enabled: 1
+    path: Assets/CancellationTask/Scenes/CancellationStart.unity
+    guid: 4bbdc570c6a3f3848bbe7ca3e25da37b
+  - enabled: 1
+    path: Assets/CancellationTask/Scenes/CancellationStop.unity
+    guid: 57904d5f28976344899adfb472b6abd1
+  - enabled: 1
+    path: Assets/CancellationTask/Scenes/CancellationTask.unity
+    guid: 4b2e3ca8e5bf47649b04ab2b17256060
+  - enabled: 1
+    path: Assets/CancellationTask/Scenes/CancellationTaskInvisible.unity
+    guid: 2cf9dd211513b4c8da81c638c39ac053
+  - enabled: 1
+    path: Assets/DigitSpan/Scenes/Digit_Span.unity
+    guid: c1c20131f45e94a96b7c4a668d08de0b
+  - enabled: 1
+    path: Assets/DotMatrix/Scenes/Dot_Matrix.unity
+    guid: 7cf690961505f4ce59e491a7ac4d3a94
+  - enabled: 1
+    path: Assets/EvidenceAcc/Scenes/Ev_Accu.unity
+    guid: a327dc7d9c6114f7290118c1286babe2
+  - enabled: 1
+    path: Assets/NumerosityTest/ANS_StartScreen.unity
+    guid: c89f6689b87dd294593ed59567ea6dac
+  - enabled: 1
+    path: Assets/NumerosityTest/ANS_PracticeRounds.unity
+    guid: bb7239733f46f1c458615d9f15e826d2
+  - enabled: 1
+    path: Assets/NumerosityTest/ANS_MainTask.unity
+    guid: 7374c0aa5b68e7748a956964db714fdd
+  - enabled: 1
+    path: Assets/PhonoAwareness/Scenes/PhonoAwareness.unity
+    guid: 741d61c6f233845b3a173bd7d1bb11cb
+  - enabled: 1
+    path: Assets/ReadingTest/Scenes/ReadingStart.unity
+    guid: 28dff6be00fd94cb0add248ae18578de
+  - enabled: 1
+    path: Assets/ReadingTest/Scenes/ReadingStop.unity
+    guid: 8c4ecab5612c74f9ba594b74f9e35ab0
+  - enabled: 1
+    path: Assets/ReadingTest/Scenes/ReadingTest.unity
+    guid: 58390f49a59a54a87b6a147aafc7407d
+  - enabled: 1
+    path: Assets/Questionnaire/Scenes/Q1_Opening_Scene.unity
+    guid: 6a38483d091f0c043964f0cacc0cbdb6
+  - enabled: 1
+    path: Assets/MatrixReasoning/Scenes/MR_end.unity
+    guid: b691eb56aad8ae342b68b5ab7adfe8e0
+  - enabled: 1
+    path: Assets/MatrixReasoning/Scenes/MR_start_test_1.unity
+    guid: f00071f786c154cdd8a6f2457c754d0e
+  - enabled: 1
+    path: Assets/MatrixReasoning/Scenes/MR_start_test_2.unity
+    guid: 73cf681e255814e709124fd18efc19da
+  - enabled: 1
+    path: Assets/MatrixReasoning/Scenes/MR_test_1.unity
+    guid: 7cea40a9eb5db9942bba53de8f6ab16a
+  - enabled: 1
+    path: Assets/MatrixReasoning/Scenes/MR_test_2.unity
+    guid: f590894d7271aab4794b0b525d97cf2d
+  - enabled: 1
+    path: Assets/Questionnaire/Scenes/Q1_Questions.unity
+    guid: 3e90ec0f2f3d7fc418e5a09510609c9a
+  - enabled: 1
+    path: Assets/Questionnaire/Scenes/Q2_Opening_Scene.unity
+    guid: d4ee67b803609624a9edc531ae10d752
+  - enabled: 1
+    path: Assets/Questionnaire/Scenes/Q2_Questions.unity
+    guid: 4eb767170e8c44a4d9bf75a31d7a11e2
+  - enabled: 1
+    path: Assets/SumsTest/Scenes/SumsStart.unity
+    guid: c98163af2c63d4ee3ae22fce55297a35
+  - enabled: 1
+    path: Assets/SumsTest/Scenes/SumsStop.unity
+    guid: 87c197c704f15414496975832647abc7
+  - enabled: 1
+    path: Assets/SumsTest/Scenes/SumsTest.unity
+    guid: 0042e1c4ad92c49d3a5f1b5df3c72536
+  - enabled: 1
+    path: Assets/Questionnaire/Scenes/Q3_Opening_Scene.unity
+    guid: 727f9aa7938ad9b45ad8f9460dc8108b
+  - enabled: 1
+    path: Assets/Questionnaire/Scenes/Q3_Questions.unity
+    guid: c9ad60f3f680d414aab645e4f10b065c
+  - enabled: 1
+    path: Assets/GoNoGo/Scenes/GoNoGoStart.unity
+    guid: 75b5f4b1ae60149519abeb34ff2a4e1d
+  - enabled: 1
+    path: Assets/GoNoGo/Scenes/GoNoGoTask.unity
+    guid: 60ba821458ab84003b76e914dd694228
+  - enabled: 1
+    path: Assets/GoNoGo/Scenes/GoNoGoEnd.unity
+    guid: 05e1818b4f6784e788050c486e517932
+  - enabled: 1
+    path: Assets/GoNoGo/Scenes/GoNoGoGame.unity
+    guid: d562504ad14e642d591ec8ace6278e58
+  - enabled: 1
+    path: Assets/LiquidConservationTask/Scenes/LC_IntroSceneDEPRECIATED.unity
+    guid: 89787c2cb8417495180ce2c303e35352
+  - enabled: 1
+    path: Assets/LiquidConservationTask/Scenes/LC_MainTask1.unity
+    guid: ec41c6a7b8d92544cb26fbaf9e60535d
+  - enabled: 1
+    path: Assets/LiquidConservationTask/Scenes/LC_MainTask2.unity
+    guid: a5230244deb214e62beda9fc5b396e75
+  - enabled: 1
+    path: Assets/LiquidConservationTask/Scenes/LC_MainTask3.unity
+    guid: ef24b7c279a974b5a8e45c2c546bd2ff
+  - enabled: 1
+    path: Assets/LiquidConservationTask/Scenes/LC_MainTask4.unity
+    guid: f5a8afe5115a8449d85c23cb2d7a2d9d
+  - enabled: 1
+    path: Assets/IntroScene/Intro_Scene.unity
+    guid: 4a19d65858b374c39b949a2792f78a9e
+  - enabled: 1
+    path: Assets/IntroScene/Intro_Rules.unity
+    guid: b268498b0c6a54250b934cfe318f391a
+  - enabled: 1
+    path: Assets/NumberLineEstimation/LE_MainTask.unity
+    guid: 9a391e96e567a9040a4eb9943897fcc0
+  - enabled: 1
+    path: Assets/NumberLineEstimation/LE_MainTask1.unity
+    guid: da7deddff42474f899999596d199c291
+  - enabled: 1
+    path: Assets/NumberLineEstimation/LE_MainTask2.unity
+    guid: f45cfc10cbe504882b013ce026d51d80
+  - enabled: 1
+    path: Assets/NumberLineEstimation/LE_MainTask3.unity
+    guid: c957b4e5104044d1dbf410ef2917d3ee
+  - enabled: 1
+    path: Assets/PhonoDavisTest/DavisTest.unity
+    guid: d79c950b43ea74d1aa18b80d153910aa
+  - enabled: 1
+    path: Assets/VocabTest/VocabTest.unity
+    guid: 28d8c8b001c3f421a885790830a55e5c
+  m_configObjects: {}

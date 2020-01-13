@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: 4a0c8a0bf79900446a07b708d2bdc2a5
+timeCreated: 1516912948
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - SliderClone: {instanceID: 0}
+  - slider_binary: {fileID: 1219506479778942, guid: c78a5fec3ed1b1c488e576bde2438ca6,
+      type: 2}
+  - slider_cont: {fileID: 1198428121552706, guid: 8ddfe2ad490313f4591bfb1b916a29fc,
+      type: 2}
+  - slider_likert5: {fileID: 1539407422945340, guid: ba0bd7a48bb334d44bc73d5029f14ef9,
+      type: 2}
+  - slider_Grit: {fileID: 1151959110107568, guid: da400be64a130704397478a733eb920b,
+      type: 2}
+  - slider_RCADS: {fileID: 1097640273677846, guid: 666f2370c3e23064eaae76aa84181647,
+      type: 2}
+  - slider_Cont2: {fileID: 1585417877791396, guid: a55b12cd052599b4d9feaf38c5d53755,
+      type: 2}
+  - slider_Number: {fileID: 1367918862854192, guid: 47c6c9499910e6142920940298d5f65f,
+      type: 2}
+  - VolumeIconSource: {instanceID: 0}
+  - SliderClone2: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

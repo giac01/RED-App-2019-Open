@@ -1,0 +1,1 @@
+/Users/ai05/Documents/GitHub/ResApp/RED app/Decrypt/decrypt/decrypt/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
