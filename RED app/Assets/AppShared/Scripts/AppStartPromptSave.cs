@@ -17,27 +17,38 @@ public class AppStartPromptSave : MonoBehaviour {
 		// Set the current task in the player preferences.
 		PlayerPrefs.SetInt("CurrentTask", 0);
 		// Determine the task order.
-		string[] _taskOrder = new string[] {
-			"AppStartPrompt",
-			"Intro_Scene",
-			"ReadingStart", 
-			"SumsStart",
-			"CancellationStart",
-			"Q1_Opening_Scene",
-			"Digit_Span",
-			"DavisTest",
-			"Q2_Opening_Scene",
-			"Dot_Matrix",
-            "GoNoGoStart",
-            
-            "Q3_Opening_Scene",
-            "ANS_StartScreen",
-            "Ev_Accu",
-            "PhonoAwareness",
-            "LC_MainTask1",
-			"LE_MainTask",
-			"GoNoGoGame",
-			"AppEnd"
+		string[] _taskOrder = {
+
+                "ReadingStart",
+                "ReadingStart",
+                "VocabTest",
+                "AppEnd"
+
+
+                //"Ev_Accu",
+                //"SumsStart",
+                //"Digit_Span",
+                //"GoNoGoStart",
+                //"HeartsFlowersStart",
+                //"LC_MainTask1",
+                //"ReadingStart", 
+                //"VocabTest",
+                //"ARTOL_MainScene",
+                
+
+                //"AppEnd"
+			    //"DavisTest",
+			    //"Q2_Opening_Scene",
+			    //"Dot_Matrix",
+                //"GoNoGoStart",
+                //"cattell_start_test_1",
+                //"Q3_Opening_Scene",
+                //"ANS_StartScreen",
+                //"Ev_Accu",
+                //"PhonoAwareness",
+                //s"LC_MainTask1",
+			    //"LE_MainTask",
+			    //"GoNoGoGame",
 		};
 		// Format the list of tasks in a single comma-separated string.
 		string _taskList = string.Join(",", _taskOrder);
@@ -78,7 +89,7 @@ public class AppStartPromptSave : MonoBehaviour {
 		//Add starttime to playerprefs 
 		PlayerPrefs.SetString("StartTime", System.DateTime.Now.ToString()); 
 		// Debug info.
-		Debug.Log ("Set new participant number in PlayerPrefs: " + PlayerPrefs.GetString("ParticipantNumber"));
-		Debug.Log ("Set new start time in PlayerPrefs: " + PlayerPrefs.GetString("StartTime"));
+		Debug.Log ("Sch - Set new participant number in PlayerPrefs: " + PlayerPrefs.GetString("ParticipantNumber"));
+		Debug.Log ("Sch - Set new start time in PlayerPrefs: " + PlayerPrefs.GetString("StartTime"));
 	}
 }

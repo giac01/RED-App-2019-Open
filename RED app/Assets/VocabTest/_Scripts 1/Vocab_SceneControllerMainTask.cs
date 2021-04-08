@@ -39,6 +39,7 @@ public AudioSource AudioSourceFeedback;
     private GameObject sprite2;
     private GameObject sprite3;
     private GameObject sprite4;
+    private float imageSize;
     //private GameObject[] sprites;
     public List<string> stimulinames;
     //public List<string> presorder2;
@@ -64,7 +65,7 @@ public AudioSource AudioSourceFeedback;
     private GameObject feedbackclone;
 
     [Header("Game Logic")]
-    private float PicSize;
+    //private float PicSize;
     public bool enableresponse;     //this prevents the buttons from doing anything when we don't want them to create a response. 
     public bool nextexamplepress = false;
     private float waitsecs;
@@ -74,6 +75,7 @@ public AudioSource AudioSourceFeedback;
     public bool trialend = false; //This allows the scripts on the response buttons to set the end of the trial!
     private GameObject secsleftclone;
     public bool noresponse; //Assesses if a response has been given for a specific trial
+    private bool showTimer;
 
     //Trial Data
 
@@ -98,10 +100,27 @@ public DataLogger Logger;
 
     void Start()
     {
-    PicSize = 1.4f;
+    //PicSize = 400f;
     WordToMatch_GameObject = GameObject.Find("Canvas").gameObject.transform.Find("Word").gameObject;
-	WordToMatch = new string[] {"bed","toy","balloon","fork","drum","engine","anchor","abacus","apostrophe","banquet","croissant","gauntlet","satelite","cerebrum","onyx","marmot","doppelganger","dossier","consulate"};
-	stimuliOrder = new string[] { "sofa","chair","bed","desk","hat","cup","toy","pen","balloon","butterfly","bucket","tub","fork","knife","spoon","plate","pot","caterpillar","drum","gate","engine","maple","shed","jewel","ski","anchor","grill","fingerprint","barometer","compass","calculator","abacus","radiator","chessboard","hazard","apostrophe","banquet","warehouse","gnome","bowels","cake","baguette","macaroon","croissant","gauntlet","shield","corset","anvil","satelite","retina","computer","coliseum","spine","femur","abdomen","cerebrum","roundabout","onyx","fedora","forceps","finch","impala","marmot","monkey","soldier","doppelganger","manager","paparazzi","dossier","cloudburst","tungsten","bisque","consulate","church","mosque","garden"};
+	WordToMatch = new string[] {"bed","toy","balloon","fork","drum","engine","ship","calendar","question mark","teapot","pizza","sword","helicopter","nose","palace","rabbit","carpenter","file","consulate"};
+	stimuliOrder = new string[] {   "sofa","chair","bed","desk",
+                                    "hat","cup","toy","pen","balloon",
+                                    "butterfly","bucket","tub","fork",
+                                    "knife","spoon","plate","pot","caterpillar",
+                                    "drum","gate","engine","maple",
+                                    "shed","jewel","ski","ship","grill",
+                                    "fingerprint","barometer","compass","calculator",
+                                    "calendar","radiator","chessboard","hazard",
+                                    "question mark","teapot","warehouse","gnome",
+                                    "bowels","cake","baguette","macaroon","pizza",
+                                    "gun","arrow","dart","sword",
+                                    "helicopter","retina","computer","coliseum",
+                                    "eye","nose","ear","tongue",
+                                    "apartment","house","palace","hut",
+                                    "finch","impala","rabbit","monkey",
+                                    "carpenter","teacher","doctor","painter",
+                                    "file","cloudburst","tungsten","bisque",
+                                    "consulate","church","mosque","garden"};
         //Set canvas elements to blank initially 
         secsleftx.SetActive(false);
         noresponsetext.SetActive(false);
@@ -114,6 +133,9 @@ public DataLogger Logger;
         sprite2 = GameObject.Find("Sprite2");
         sprite3 = GameObject.Find("Sprite3");
         sprite4 = GameObject.Find("Sprite4");
+
+        imageSize = sprite1.GetComponent<RectTransform>().sizeDelta[0]; //width of images of pictures
+        print(imageSize);
 
 
         //Load images into memory
@@ -149,13 +171,12 @@ AudioSourceFeedback = gameObject.GetComponent<AudioSource> ();
         {
             //Set up trial logic
            trialend = false; nextexamplepress = false; noresponse = true; enableresponse = false;
-           sprite1.SetActive(false); sprite2.SetActive(false);sprite3.SetActive(false);WordToMatch_GameObject.SetActive(false);
+           sprite1.SetActive(false); sprite2.SetActive(false);sprite3.SetActive(false);sprite4.SetActive(false);WordToMatch_GameObject.SetActive(false);
 
             //Present Fixation Cross
                 //fixationclone = Instantiate(fixationcross) as GameObject;
 
                 yield return new WaitForSecondsRealtime(fixationtime);
-                sprite1.SetActive(true); sprite2.SetActive(true);sprite3.SetActive(true);WordToMatch_GameObject.SetActive(true);
                 //Destroy(fixationclone);
 
                 enableresponse = true;
@@ -168,32 +189,38 @@ AudioSourceFeedback = gameObject.GetComponent<AudioSource> ();
                 index3 = stimulinames.IndexOf((stimuliOrder[trialnum * 4 + 2]));
                 index4 = stimulinames.IndexOf((stimuliOrder[trialnum * 4 + 3]));
 
-
                 //print(index1);
                 //print((stimuliOrder[trialnum * 4]));
-                sprite1.GetComponent<SpriteRenderer>().sprite = stimuli[index1];
-                sprite2.GetComponent<SpriteRenderer>().sprite = stimuli[index2];
-                sprite3.GetComponent<SpriteRenderer>().sprite = stimuli[index3];
-                sprite4.GetComponent<SpriteRenderer>().sprite = stimuli[index4];
+                sprite1.GetComponent<Image>().sprite = stimuli[index1];
+                sprite2.GetComponent<Image>().sprite = stimuli[index2];
+                sprite3.GetComponent<Image>().sprite = stimuli[index3];
+                sprite4.GetComponent<Image>().sprite = stimuli[index4];
+                sprite1.SetActive(true); sprite2.SetActive(true);sprite3.SetActive(true);sprite4.SetActive(true);WordToMatch_GameObject.SetActive(true);
+                showTimer = true;
+
+                //Resize Images so that they care 
+                sprite1.transform.localScale = new Vector3 (1.2f*stimuli[index1].rect.width/Mathf.Max(stimuli[index1].rect.width,stimuli[index1].rect.height), 1.2f*stimuli[index1].rect.height/Mathf.Max(stimuli[index1].rect.width,stimuli[index1].rect.height),1);
+                sprite2.transform.localScale = new Vector3 (1.2f*stimuli[index2].rect.width/Mathf.Max(stimuli[index2].rect.width,stimuli[index2].rect.height), 1.2f*stimuli[index2].rect.height/Mathf.Max(stimuli[index2].rect.width,stimuli[index2].rect.height),1);
+                sprite3.transform.localScale = new Vector3 (1.2f*stimuli[index3].rect.width/Mathf.Max(stimuli[index3].rect.width,stimuli[index3].rect.height), 1.2f*stimuli[index3].rect.height/Mathf.Max(stimuli[index3].rect.width,stimuli[index3].rect.height),1);
+                sprite4.transform.localScale = new Vector3 (1.2f*stimuli[index4].rect.width/Mathf.Max(stimuli[index4].rect.width,stimuli[index4].rect.height), 1.2f*stimuli[index4].rect.height/Mathf.Max(stimuli[index4].rect.width,stimuli[index4].rect.height),1);
 
 
-                
-                float sprite1Adjustment = PicSize/Mathf.Max(sprite1.GetComponent<SpriteRenderer>().sprite.bounds.extents.x,sprite1.GetComponent<SpriteRenderer>().sprite.bounds.extents.y);
-                float sprite2Adjustment = PicSize/Mathf.Max(sprite2.GetComponent<SpriteRenderer>().sprite.bounds.extents.x,sprite2.GetComponent<SpriteRenderer>().sprite.bounds.extents.y);
-                float sprite3Adjustment = PicSize/Mathf.Max(sprite3.GetComponent<SpriteRenderer>().sprite.bounds.extents.x,sprite3.GetComponent<SpriteRenderer>().sprite.bounds.extents.y);
-                float sprite4Adjustment = PicSize/Mathf.Max(sprite4.GetComponent<SpriteRenderer>().sprite.bounds.extents.x,sprite4.GetComponent<SpriteRenderer>().sprite.bounds.extents.y);
+                //Old code for when sprites were used
+                //float sprite2Adjustment = PicSize/Mathf.Max(sprite2.GetComponent<SpriteRenderer>().sprite.bounds.extents.x,sprite2.GetComponent<SpriteRenderer>().sprite.bounds.extents.y);
+                //float sprite3Adjustment = PicSize/Mathf.Max(sprite3.GetComponent<SpriteRenderer>().sprite.bounds.extents.x,sprite3.GetComponent<SpriteRenderer>().sprite.bounds.extents.y);
+                //float sprite4Adjustment = PicSize/Mathf.Max(sprite4.GetComponent<SpriteRenderer>().sprite.bounds.extents.x,sprite4.GetComponent<SpriteRenderer>().sprite.bounds.extents.y);
 
                 //print("AdjustmentIndicies" + sprite1Adjustment.ToString() + "     " + sprite2Adjustment.ToString() +"     " + sprite3Adjustment.ToString() +"     " + sprite4Adjustment.ToString() );
 
-                sprite1.transform.localScale = new Vector3( sprite1Adjustment,sprite1Adjustment,1f);
-                sprite2.transform.localScale = new Vector3( sprite2Adjustment,sprite2Adjustment,1f);
-                sprite3.transform.localScale = new Vector3( sprite3Adjustment,sprite3Adjustment,1f);
-                sprite4.transform.localScale = new Vector3( sprite4Adjustment,sprite4Adjustment,1f);
+                //sprite1.transform.localScale = sprite1Adjustment;
+                //sprite2.transform.localScale = new Vector3( sprite2Adjustment,sprite2Adjustment,1f);
+                //sprite3.transform.localScale = new Vector3( sprite3Adjustment,sprite3Adjustment,1f);
+                //sprite4.transform.localScale = new Vector3( sprite4Adjustment,sprite4Adjustment,1f);
 
-                sprite1.GetComponent<BoxCollider2D>().size= new Vector3( BoxColliderSize/sprite1Adjustment,BoxColliderSize/sprite1Adjustment,1f);
-                sprite2.GetComponent<BoxCollider2D>().size= new Vector3( BoxColliderSize/sprite2Adjustment,BoxColliderSize/sprite2Adjustment,1f);
-                sprite3.GetComponent<BoxCollider2D>().size= new Vector3( BoxColliderSize/sprite3Adjustment,BoxColliderSize/sprite3Adjustment,1f);
-                sprite4.GetComponent<BoxCollider2D>().size= new Vector3( BoxColliderSize/sprite4Adjustment,BoxColliderSize/sprite4Adjustment,1f);
+                //sprite1.GetComponent<BoxCollider2D>().size= new Vector3( BoxColliderSize/sprite1Adjustment,BoxColliderSize/sprite1Adjustment,1f);
+                //sprite2.GetComponent<BoxCollider2D>().size= new Vector3( BoxColliderSize/sprite2Adjustment,BoxColliderSize/sprite2Adjustment,1f);
+                //sprite3.GetComponent<BoxCollider2D>().size= new Vector3( BoxColliderSize/sprite3Adjustment,BoxColliderSize/sprite3Adjustment,1f);
+                //sprite4.GetComponent<BoxCollider2D>().size= new Vector3( BoxColliderSize/sprite4Adjustment,BoxColliderSize/sprite4Adjustment,1f);
 
 
                 //sprite2.transform.localScale = new Vector3( PicSize/sprite2.GetComponent<SpriteRenderer>().sprite.bounds.extents.x/2,
@@ -220,6 +247,7 @@ AudioSourceFeedback = gameObject.GetComponent<AudioSource> ();
 
 
             //Delete number blobs and show text if no response is given. 
+           showTimer=false; circle_white.SetActive(false);
            sprite1.GetComponent<SpriteRenderer>().sprite = null;
            sprite2.GetComponent<SpriteRenderer>().sprite = null;
            sprite3.GetComponent<SpriteRenderer>().sprite = null;
@@ -252,13 +280,13 @@ AudioSourceFeedback = gameObject.GetComponent<AudioSource> ();
 
         }
         timeTaskTaken = Time.time - timeStartTask;
-print(String.Concat("Your Score: ", ConvertBoolArrayToMean(correctPress).ToString(".###")));
+		print(String.Concat("Your Score: ", ConvertBoolArrayToMean(correctPress).ToString(".###")));
 
         whichhasmore.SetActive(false);
 
 
-// Signal the Update function that we're done.
-_areWeDoneYet = true;
+		// Signal the Update function that we're done.
+		_areWeDoneYet = true;
 
         yield return null;
 
@@ -286,13 +314,13 @@ AudioSourceFeedback.PlayOneShot (IncorrectAudio);
     {
         SetCanvasTimer(); //here the countdown timer in the response section is running
 
-// Check if the task is done yet.
-if (_areWeDoneYet)
-{
-Logger.Close ();
-// Load the next scene.
-UnityEngine.SceneManagement.SceneManager.LoadScene("InBetweenScene");
-}
+		// Check if the task is done yet.
+		if (_areWeDoneYet)
+		{
+		Logger.Close ();
+		// Load the next scene.
+		UnityEngine.SceneManagement.SceneManager.LoadScene("InBetweenScene");
+		}
     }
 
     //Functions and that
@@ -315,12 +343,12 @@ UnityEngine.SceneManagement.SceneManager.LoadScene("InBetweenScene");
 
     public void SetCanvasTimer() //here the countdown timer in the response section is running
     {
-        if (sprite1.GetComponent<SpriteRenderer>().sprite == null)
+        if (showTimer)
         {
             secsleftx.SetActive(false); circle_white.SetActive(false);
         }
 
-        if (sprite1.GetComponent<SpriteRenderer>().sprite != null) //This updates the seconds remaining gui elements.
+        if (showTimer) //This updates the seconds remaining gui elements.
         {
             secsleftx.SetActive(true); circle_white.SetActive(true);
             timeleft = Mathf.Max(Mathf.Round(observationtime + .49f + (timeStartTrial - Time.time)), 0f);

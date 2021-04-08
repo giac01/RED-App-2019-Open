@@ -29,7 +29,7 @@ public class DataUploader : MonoBehaviour {
 	private string thisFileName; 
 	private string thisString; 
 	// TODO: Obtain the password through a prompt.
-	private string _passPhrase = "YourPassword";
+	private string _passPhrase = "ClownsAreScary";
 	private bool _encrypt = true;
 	private bool _currentlyUploading = false;
 
@@ -170,7 +170,7 @@ public class DataUploader : MonoBehaviour {
 		Debug.Log (thisName); 
 
 		//insert this json in unique ID field 
-		UnityWebRequest www = UnityWebRequest.Put("www.Yourfirebaseapp.com/YourAccessToken".Insert(36, uploadName), thisJSON);
+		UnityWebRequest www = UnityWebRequest.Put("https://redapp-alpha.firebaseio.com/.json?auth=Cs6Su1Up797B2LWD7QwrSWF5y7tWtwpr7rbyv0IL".Insert(36, uploadName), thisJSON);
 
 		yield return www.Send();
 

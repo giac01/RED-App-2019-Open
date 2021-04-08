@@ -68,8 +68,8 @@ public class LC_SceneManagerScript : MonoBehaviour {
 	
 		SceneManagerGO = GameObject.Find ("SceneManagerGO");
 		CanvasGO = GameObject.Find ("Canvas");
-		Feedback = CanvasGO.transform.Find ("EndGameFeedback").gameObject;
-		Feedback.SetActive (false);
+		//Feedback = CanvasGO.transform.Find ("EndGameFeedback").gameObject;
+		//Feedback.SetActive (false);
 		GlassList = Resources.LoadAll<GameObject> ("GlassPrefabs") as GameObject[];
 		//GlassOrder = new int[] {0, 0, 1, 1, 0, 0, 0, 1, 1, 0 , 0, 1};
 
@@ -108,8 +108,8 @@ public class LC_SceneManagerScript : MonoBehaviour {
 
 		for (TrialI = 0; TrialI < NTrials; TrialI++) {
 			Tap.SetActive (true);
-			GlassFillRate = 40000;
-			float TrialStartTime = Time.time;
+            GlassFillRate = 40000 * Screen.width / 2048;
+            float TrialStartTime = Time.time;
 			TapScript.AllowFill = true;
 
 			//Instantiate Objects

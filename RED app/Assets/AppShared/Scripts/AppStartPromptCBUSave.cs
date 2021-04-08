@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,28 +18,42 @@ public class AppStartPromptCBUSave : MonoBehaviour {
 		PlayerPrefs.SetInt("CurrentTask", 0);
 		// Determine the task order.
 		string[] _taskOrder = new string[] {
-			"AppStartPrompt",
-			"Intro_Scene",
-			"ReadingStart", 
-			"SumsStart",
-			"CancellationStart",
-			"Q1_Opening_Scene",
-			"Digit_Span",
-			"DavisTest",
-			"Q2_Opening_Scene",
-			"Dot_Matrix",
+             "ARTOL_MainScene",
+            //"HeartsFlowersStart",
+			//"AppStartPrompt",
+			//"Intro_Scene",
+			//"ReadingStart",
+            "SumsStart",
+            "Digit_Span",
             "GoNoGoStart",
-            
-            "Q3_Opening_Scene",
-            "ANS_StartScreen",
-            "Ev_Accu_short",
-            "VocabTest",
-            "PhonoAwareness",
+            "HeartsFlowersStart",
+            "ARTOL_MainScene",
             "LC_MainTask1",
-			"LE_MainTask",
-			"GoNoGoGame",
+
+
+            //"VocabTest",
+			//"CancellationStart",
+			//"Q1_Opening_Scene",
+			//"Digit_Span",
+            //"HeartsFlowersStart",
+            //"ARTOL_MainScene",
+            //"LC_MainTask1",
+
+
+			//"DavisTest",
+			//"Q2_Opening_Scene",
+			//"Dot_Matrix",
+            //"GoNoGoStart",
+            //"cattell_start_test_1",
+            //"Q3_Opening_Scene",
+            //"ANS_StartScreen",
+            //"Ev_Accu",
+            //"PhonoAwareness",
+            //s"LC_MainTask1",
+			//"LE_MainTask",
+			//"GoNoGoGame",
 			"AppEnd"
-		};
+        };
 		// Format the list of tasks in a single comma-separated string.
 		string _taskList = string.Join(",", _taskOrder);
 		// Save the task order in the player preferences.

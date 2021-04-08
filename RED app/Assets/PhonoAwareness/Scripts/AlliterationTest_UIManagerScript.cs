@@ -28,7 +28,7 @@ public class AlliterationTest_UIManagerScript : MonoBehaviour {
 	public GameObject StartButton;
 	public GameObject EndText;
 
-	public GameObject Feedback; 
+	//public GameObject Feedback; 
 
 	public int chose_side; 
 	public bool isleft  = false; 
@@ -112,7 +112,7 @@ public class AlliterationTest_UIManagerScript : MonoBehaviour {
 		LeftOption = GameObject.Find ("left_option");
 		RightOption = GameObject.Find ("right_option"); 
 
-		Feedback = GameObject.Find ("Feedback"); 
+		//Feedback = GameObject.Find ("Feedback"); 
 
 		//get placeholders rect transform components
 		leftrect = LeftOption.GetComponents<Transform>()[0]; 

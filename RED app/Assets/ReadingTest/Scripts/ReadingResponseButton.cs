@@ -28,7 +28,7 @@ public class ReadingResponseButton : MonoBehaviour {
 		// Log the touch on this stimulus.
 		string[] data = {_time.ToString(), sentence.text, this.name};
 		logger.LogData(data);
-		Debug.Log (data);
+		//Debug.Log (data);
 
 		// Update the sentence.
 		sceneController.NextSentence();

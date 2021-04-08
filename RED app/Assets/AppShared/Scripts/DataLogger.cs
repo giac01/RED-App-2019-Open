@@ -23,6 +23,8 @@ public class DataLogger : MonoBehaviour {
 	// Use this for initialization
 	void Awake () 
 	{
+		// Get application version number
+		string appVersion = "AppVersion" + Application.version;
 		// Load the participant number form the PlayerPrefs.
 		_participantNumber = PlayerPrefs.GetString("ParticipantNumber");
 		// Get the current scene. We need this to find the task name.
@@ -30,9 +32,11 @@ public class DataLogger : MonoBehaviour {
 		// Get the current time.
 		string time = System.DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
 		// Construct the file name.
-		_fileName = string.Format("/{0}_{1}_{2}.txt", scene.name, _participantNumber, time);
+		_fileName = string.Format("{0}_{1}_{2}_{3}.txt", scene.name, _participantNumber, time, appVersion);
 		// Open a file for this participant.
-		_filePath = Application.persistentDataPath + _fileName;
+		_filePath = Application.persistentDataPath + Path.DirectorySeparatorChar + _fileName;
+
+		//Create file to write within
 		_streamWriter = File.CreateText(_filePath);
 		// TODO: Take out this temporary debug log to the console.
 		Debug.Log("Opened file: " + _filePath);
